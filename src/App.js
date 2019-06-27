@@ -1,11 +1,12 @@
 import React from 'react';
-import Test from './Test';
-
+import Home from './app/containers/Home';
+import './App.css';
+import './App.scss';
 export default class App extends React.Component {
 	render() {
 		return (
-			<div className="footer">
-				<Test/>
+			<div className="App">
+				<Home/>
 			</div>
 		) 
 	}

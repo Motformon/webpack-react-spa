@@ -11,7 +11,7 @@ const jsLoader = require('./loaders/js');
 const otherLoader = require('./loaders/other');
 
 module.exports = {
-  entry: ['@babel/polyfill', path.join(SRC_DIR, 'index')],
+  entry: ['@babel/polyfill', path.join(SRC_DIR, 'client')],
   output: {
     filename: 'bundle.js',
     path: BUILD_DIR
