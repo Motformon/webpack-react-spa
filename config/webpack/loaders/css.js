@@ -6,7 +6,7 @@ module.exports = {
 		test: reStyle,
 		rules: [
 			{
-				loader: 'style-loader', 
+				loader: MiniCssExtractPlugin.loader, 
 			},
 			{
 				exclude: SRC_DIR,
@@ -16,9 +16,17 @@ module.exports = {
 				include: SRC_DIR,
 				loader: "css-loader",
 				options: {
-					importLoaders: 1,
+					importLoaders: 2,
 					modules: true,
 					localIdentName: '[local]___[hash:base64:5]'
+				},
+			},
+			{
+				loader: 'postcss-loader',
+				options: {
+					config: {
+						path: './config/webpack/postcss.config.js',
+					},
 				},
 			},
 			{
@@ -27,31 +35,5 @@ module.exports = {
 			},
 		],
 
-
-
-		// {
-		// 	test: /\.css$/,
-		// 	use: [
-		// 		MiniCssExtractPlugin.loader, 
-		// 		"css-loader",
-		// 	]
-		// },
-		// {
-		// 	test: /\.css$/,
-		// 	use: [
-		// 		'style-loader', 
-				// {
-				// 	loader: "css-loader",
-				// 	options: {
-				// 		modules: true,
-				// 		localIdentName: "[local]___[hash:base64:5]"
-				// 	}
-				// },
-		// 	]
-		// },
-		// {
-		// 	test: /\.scss$/,
-		// 	use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-		// },
 	},
 };

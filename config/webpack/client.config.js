@@ -16,12 +16,12 @@ module.exports = {
     filename: 'bundle.js',
     path: BUILD_DIR
   },
-  // optimization: {
-  //   minimizer: [
-  //     // new OptimizeCssAssetsPlugin({}),
-  //     // new UglifyJsPlugin({})
-  //   ]
-  // },
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsPlugin({}),
+      new UglifyJsPlugin({})
+    ]
+  },
   devServer: {
     contentBase: BUILD_DIR,
     port: 4200
@@ -31,9 +31,9 @@ module.exports = {
       filename: 'index.html',
       template: path.join(SRC_DIR, 'index.html')
     }),
-    // new MiniCssExtractPlugin({
-    //   filename: 'style.css'
-    // })
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx']
@@ -42,7 +42,7 @@ module.exports = {
     rules: [
 			cssLoader.client,
 			...jsLoader.client,
-			...otherLoader.client,
+			// ...otherLoader.client,
     ]
   }
 }
