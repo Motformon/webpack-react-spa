@@ -40,7 +40,7 @@ module.exports = {
   },
   module: {
     rules: [
-			cssLoader.client,
+			...cssLoader.client,
 			...jsLoader.client,
 			// ...otherLoader.client,
     ]
